@@ -15,9 +15,9 @@
     "iconUrl": "https://raw.githubusercontent.com/google/datastudio/master/logo.png",
     "description": "Animowany wykres z przyciskami",
     "resource": {
-      "js": "https://<TWOJ_LOGIN>.github.io/<TWOJE_REPO>/index.js",
-      "config": "https://<TWOJ_LOGIN>.github.io/<TWOJE_REPO>/index.json",
-      "css": "https://<TWOJ_LOGIN>.github.io/<TWOJE_REPO>/index.css"
+      "js": "https://remiios.github.io/Looker_Dr_Test/index.js",
+      "config": "https://remiios.github.io/Looker_Dr_Test/index.json",
+      "css": "https://remiios.github.io/Looker_Dr_Test/index.css"
     }
   }]
 }
