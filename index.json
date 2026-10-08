@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "id": "concepts",
+      "label": "Dane wykresu",
+      "elements": [
+        { "id": "dateDim", "label": "Data / Okres", "type": "DIMENSION", "options": { "min": 1, "max": 1 } },
+        { "id": "metricVal", "label": "Wartość (Y)", "type": "METRIC", "options": { "min": 1, "max": 1 } }
+      ]
+    }
+  ],
+  "style": [
+    {
+      "id": "animationStep",
+      "label": "Czas kroku animacji (ms)",
+      "type": "TEXT_INPUT",
+      "defaultValue": "1000"
+    },
+    {
+      "id": "smoothLine",
+      "label": "Wygładzanie linii",
+      "type": "CHECKBOX",
+      "defaultValue": true
+    },
+    {
+      "id": "startDate",
+      "label": "Data początkowa (np. 20240101)",
+      "type": "TEXT_INPUT",
+      "defaultValue": ""
+    },
+    {
+      "id": "endDate",
+      "label": "Data końcowa (np. 20241231)",
+      "type": "TEXT_INPUT",
+      "defaultValue": ""
+    }
+  ]
+}

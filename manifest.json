@@ -1,0 +1,23 @@
+{
+  "name": "Animated Line Chart",
+  "logoUrl": "https://raw.githubusercontent.com/google/datastudio/master/logo.png",
+  "organization": "Custom",
+  "organizationUrl": "https://github.com",
+  "termsOfServiceUrl": "https://github.com",
+  "supportUrl": "https://github.com",
+  "packageUrl": "https://github.com",
+  "privacyPolicyUrl": "https://github.com",
+  "description": "Animowany wykres liniowy (bez Node.js)",
+  "devMode": true,
+  "components": [{
+    "id": "animated_line_chart",
+    "name": "Animated Line Chart",
+    "iconUrl": "https://raw.githubusercontent.com/google/datastudio/master/logo.png",
+    "description": "Animowany wykres z przyciskami",
+    "resource": {
+      "js": "https://<TWOJ_LOGIN>.github.io/<TWOJE_REPO>/index.js",
+      "config": "https://<TWOJ_LOGIN>.github.io/<TWOJE_REPO>/index.json",
+      "css": "https://<TWOJ_LOGIN>.github.io/<TWOJE_REPO>/index.css"
+    }
+  }]
+}
