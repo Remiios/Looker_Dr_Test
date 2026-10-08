@@ -1,4 +1,3 @@
-// --- Dynamiczne ładowanie bibliotek (zamiast Node.js / Webpack) ---
 function loadScript(src) {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
@@ -9,7 +8,6 @@ function loadScript(src) {
   });
 }
 
-// Globalne zmienne dla logiki wykresu
 let timer;
 let currentIndex = 1;
 let isPlaying = false;
@@ -19,19 +17,16 @@ let xScale, yScale;
 let svg, path;
 
 function parseDate(dateStr) {
-  if(dateStr.length === 8) {
+  if(dateStr && dateStr.length === 8) {
     return new Date(dateStr.slice(0, 4), dateStr.slice(4, 6) - 1, dateStr.slice(6, 8));
   }
   return new Date(dateStr);
 }
 
 function drawViz(data) {
-  document.body.innerHTML = ''; // Czyszczenie DOM
-  
-  // Bezpieczne pobranie D3 (załadowane z CDN)
+  document.body.innerHTML = '';
   const d3 = window.d3;
 
-  // 1. Filtrowanie dat
   const startDateStr = data.style.startDate.value;
   const endDateStr = data.style.endDate.value;
   
@@ -47,7 +42,6 @@ function drawViz(data) {
     return;
   }
 
-  // 2. Interfejs przycisków
   const uiContainer = document.createElement('div');
   uiContainer.className = 'controls-container';
   uiContainer.innerHTML = `
@@ -61,7 +55,6 @@ function drawViz(data) {
   document.getElementById('btn-stop').addEventListener('click', stopAnimation);
   document.getElementById('btn-reset').addEventListener('click', resetAnimation);
 
-  // 3. Rysowanie SVG za pomocą D3
   const margin = {top: 20, right: 20, bottom: 30, left: 50};
   const width = window.dscc.getWidth() - margin.left - margin.right;
   const height = window.dscc.getHeight() - 60 - margin.top - margin.bottom;
@@ -117,7 +110,7 @@ function startAnimation(stepTimeStr) {
   timer = setInterval(() => {
     currentIndex++;
     if (currentIndex > globalData.length) {
-      currentIndex = 1; // Zapętlanie
+      currentIndex = 1;
     }
     updateChart();
   }, stepTime);
@@ -134,14 +127,11 @@ function resetAnimation() {
   updateChart();
 }
 
-// Inicjalizacja: Najpierw ładujemy biblioteki z CDN, potem podpinamy Looker Studio
 Promise.all([
   loadScript('https://cdn.jsdelivr.net/npm/@google/dscc@0.3.11/build/dscc.min.js'),
   loadScript('https://d3js.org/d3.v7.min.js')
 ]).then(() => {
-  // Biblioteki załadowane. Uruchamiamy nasłuchiwanie danych z Looker Studio.
   window.dscc.subscribeToData(drawViz, { transform: window.dscc.objectTransform });
 }).catch(err => {
   console.error("Błąd ładowania bibliotek:", err);
-  document.body.innerHTML = "Wystąpił błąd podczas ładowania wymaganych bibliotek.";
 });
